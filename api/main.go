@@ -11,9 +11,7 @@ import (
 func main() {
 	config.Carregar()
 
-	fmt.Println(config.ConnectionString)
-
-	fmt.Println("Rodando a API.")
+	fmt.Printf("Escutando na porta %d...", config.Porta)
 
 	r := router.Gerar()
 
