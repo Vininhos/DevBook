@@ -333,10 +333,14 @@ func AtualizarSenha(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if usuarioIDNoToken != usuarioID {
-		respostas.Erro(w, http.StatusForbidden, errors.New("não é possível atualizar a senha de um usuário que não seja o seu."))
+		respostas.Erro(w, http.StatusForbidden, errors.New("não é possível atualizar a senha de um usuário que não seja o seu"))
 	}
 
 	corpoRequest, erro := io.ReadAll(r.Body)
+	if erro != nil {
+		respostas.Erro(w, http.StatusBadGateway, erro)
+		return
+	}
 
 	var senha modelos.Senha
 	if erro = json.Unmarshal(corpoRequest, &senha); erro != nil {
@@ -359,7 +363,7 @@ func AtualizarSenha(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if erro = seguranca.VerificarSenha(senhaSalvaNoBanco, senha.Atual); erro != nil {
-		respostas.Erro(w, http.StatusUnauthorized, errors.New("a senha atual não condiz com a que está salva no banco."))
+		respostas.Erro(w, http.StatusUnauthorized, errors.New("a senha atual não condiz com a que está salva no banco"))
 		return
 	}
 
