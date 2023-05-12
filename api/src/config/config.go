@@ -35,9 +35,11 @@ func Carregar() {
 
 	SecretKey = []byte(os.Getenv("SECRET_KEY"))
 
-	ConnectionString = fmt.Sprintf("%s:%s@/%s?charset=utf8&parseTime=True&loc=Local",
+	ConnectionString = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		os.Getenv("DB_USUARIO"),
 		os.Getenv("DB_SENHA"),
+		os.Getenv("DB_ADDRESS"),
+		os.Getenv("DB_PORT"),
 		os.Getenv("DB_NOME"),
 	)
 }
