@@ -61,8 +61,6 @@ func (repositorio Usuarios) Buscar(nomeOuNick string) ([]modelos.Usuario, error)
 			return nil, erro
 		}
 
-		fmt.Println(usuario)
-
 		usuarios = append(usuarios, usuario)
 	}
 

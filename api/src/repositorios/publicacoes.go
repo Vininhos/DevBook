@@ -3,7 +3,6 @@ package repositorios
 import (
 	"api/src/modelos"
 	"database/sql"
-	"fmt"
 )
 
 // Publicacoes representa um repositório de publicações.
@@ -153,7 +152,7 @@ func (repositorio Publicacoes) BuscarPorUsuario(usuarioID uint64) ([]modelos.Pub
 		); erro != nil {
 			return nil, erro
 		}
-		fmt.Println("Publicação:", publicacao)
+
 		publicacoes = append(publicacoes, publicacao)
 	}
 
