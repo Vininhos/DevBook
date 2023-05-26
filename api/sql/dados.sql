@@ -16,7 +16,4 @@ INSERT INTO publicacoes(titulo, conteudo, autor_id)
 VALUES
 ("Publicação do usuário 1", "Essa é a publicação do usuário 1! Oba!", 1),
 ("Publicação do usuário 2", "Essa é a publicação do usuário 2! Oba!", 2),
-("Publicação do usuário 3", "Essa é a publicação do usuário 3! Oba!", 3),
-("Lorem Ipsum 1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scelerisque metus ut augue euismod elementum. Suspendisse viverra, nulla et lobortis eleifend, neque libero finibus diam, commodo posuere lacus ante sit amet leo.", 1),
-("Lorem Ipsum 2", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scelerisque metus ut augue euismod elementum. Suspendisse viverra, nulla et lobortis eleifend, neque libero finibus diam, commodo posuere lacus ante sit amet leo.", 2),
-("Lorem Ipsum 3", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scelerisque metus ut augue euismod elementum. Suspendisse viverra, nulla et lobortis eleifend, neque libero finibus diam, commodo posuere lacus ante sit amet leo.", 3);
+("Publicação do usuário 3", "Essa é a publicação do usuário 3! Oba!", 3);
