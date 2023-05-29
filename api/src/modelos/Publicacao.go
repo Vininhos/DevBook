@@ -43,5 +43,5 @@ func (publicacao *Publicacao) validar() error {
 // Formatar realiza um TrimSpace nos campos Título e Conteúdo.
 func (publicacao *Publicacao) formatar() {
 	publicacao.Titulo = strings.TrimSpace(publicacao.Titulo)
-	publicacao.Titulo = strings.TrimSpace(publicacao.Conteudo)
+	publicacao.Conteudo = strings.TrimSpace(publicacao.Conteudo)
 }
