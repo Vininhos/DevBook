@@ -6,6 +6,7 @@ function fazerLogin(evento) {
     $.ajax({
         url: "/login",
         method: "POST",
+        dataType: "text",
         data: {
             email: $('#email').val(),
             senha: $('#senha').val(),
