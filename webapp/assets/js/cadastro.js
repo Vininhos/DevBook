@@ -11,6 +11,7 @@ function criarUsuario(evento) {
     $.ajax({
         url: "/usuarios",
         method: "POST",
+        dataType: "text",
         data: {
             nome: $('#nome').val(),
             email: $('#email').val(),
