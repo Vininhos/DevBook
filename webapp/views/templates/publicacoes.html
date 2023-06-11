@@ -4,27 +4,25 @@
 {{ end }}
 
 {{ define "editar" }}
-<a href="/publicacoes/{{ .ID }}/editar" style="text-decoration: none;">
+<a href="/publicacoes/{{ .ID }}/atualizar" style="text-decoration: none;">
     <i class="fa-solid fa-pen-to-square" style="color: #3584e4;"></i>
 </a>
 {{ end }}
 
 {{ define "deletar" }}
-<a href="/deletar" style="text-decoration: none;">
-    <i class="fa-solid fa-trash text-danger" style="color: #1c71d8;"></i>
-</a>
+    <i class="fa-solid fa-trash text-danger deletar-publicacao" style="color: #1c71d8; cursor: pointer;"></i>
 {{ end }}
 
 {{ define "cabecalho-publicacao" }}
 <h1 class="display-4">{{ .Titulo }}</h1>
 <p class="lead">{{ .Conteudo }}</p>
-<a href="#"> {{ .AutorNick }} - {{ .CriadaEm.Format "02/01/2006 3:4"}}</a>
+<a href="#"> {{ .AutorNick }} - {{ .CriadaEm.Format "02/01/2006 3:4" }}</a>
 <hr class="my-4">
 {{ end }}
 
 {{ define "publicacao-com-permissao" }}
 <div class="jumbotron" data-publicacao-id="{{ .ID }}">
-    {{ template "cabecalho-publicacao" .}}
+    {{ template "cabecalho-publicacao" . }}
     {{ template "editar" . }}
     {{ template "deletar" . }}
     <p>
