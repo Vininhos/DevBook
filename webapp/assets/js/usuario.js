@@ -2,11 +2,12 @@ $('#parar-de-seguir').on('click', pararDeSeguir);
 $('#seguir').on('click', seguir);
 $('#editar-usuario').on('submit', editar);
 $('#atualizar-senha').on('submit', atualizarSenha);
+$('#deletar-usuario').on('click', deletarUsuario);
 
 function pararDeSeguir() {
     const usuarioId = $(this).data('usuario-id');
     $(this).prop('disabled', true);
-    
+
     $.ajax({
         url: `/usuarios/${usuarioId}/parar-de-seguir`,
         method: "POST"
@@ -44,11 +45,11 @@ function editar(evento) {
             email: $('#email').val(),
             nick: $('#nick').val(),
         }
-    }).done(function() {
-        Swal.fire("Sucesso!", "Usuário atualizado com sucesso!", "success").then(function() {
+    }).done(function () {
+        Swal.fire("Sucesso!", "Usuário atualizado com sucesso!", "success").then(function () {
             window.location = "/perfil";
         });
-    }).fail(function() {
+    }).fail(function () {
         Swal.fire("Erro!", "Erro ao atualizar o usuario!", "error");
     });
 }
@@ -68,12 +69,35 @@ function atualizarSenha(evento) {
             atual: $("#senha-atual").val(),
             nova: $("#nova-senha").val(),
         }
-    }).done(function() {
-        Swal.fire("Sucesso!", "A senha foi atualizada com sucesso!", "success").then(function() {
+    }).done(function () {
+        Swal.fire("Sucesso!", "A senha foi atualizada com sucesso!", "success").then(function () {
             window.location = "/perfil";
         });
 
-    }).fail(function() {
+    }).fail(function () {
         Swal.fire("Erro!", "Erro ao atualizar a senha!", "error");
+    });
+}
+
+function deletarUsuario() {
+    Swal.fire({
+        title: "Atenção!",
+        text: "Tem certeza que deseja apagar a sua conta? Essa ação é irreversível!",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar",
+        icon: "warning"
+    }).then(function (confirmacao) {
+        if (confirmacao.value) {
+            $.ajax({
+                url: "/deletar-usuario",
+                method: "DELETE",
+            }).done(function () {
+                Swal.fire("Sucesso!", "Seu usuário foi deletado com sucesso.", "success").then(function () {
+                    window.location = "/logout";
+                })
+            }).fail(function () {
+                Swal.fire("Erro!", "Ocorreu um erro ao excluir o seu usuário!", "error");
+            })
+        }
     })
 }

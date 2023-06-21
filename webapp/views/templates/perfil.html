@@ -6,6 +6,7 @@
     <title>DevBook - Meu Perfil </title>
     <link href="/assets/css/bootstrap.css" rel="stylesheet" />
 </head>
+
 <body>
     {{ template "cabecalho" }}
 
@@ -34,7 +35,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <a href="/editar-usuario" class="card-link"  style="text-decoration: none;">
+                            <a href="/editar-usuario" class="card-link" style="text-decoration: none;">
                                 <button class="btn btn-info">Editar dados</button>
                             </a>
                             <a href="/atualizar-senha" class="card-link">
@@ -65,6 +66,13 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-4">
+            <a id="deletar-usuario" class="card-link">
+                <button class="btn btn-danger">
+                    Excluir conta permanentemente
+                </button>
+            </a>
+        </div>
     </div>
 
     {{ template "rodape" }}
@@ -74,5 +82,7 @@
 
     {{ template "scripts" }}
     <script src="/assets/js/publicacoes.js"></script>
+    <script src="/assets/js/usuario.js"></script>
 </body>
+
 </html>
